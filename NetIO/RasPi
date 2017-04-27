@@ -1,0 +1,74 @@
+{
+	"type": "NetIOConfiguration",
+	"version": 2,
+	"connections": [
+		{
+			"name": "connection",
+			"host": "217.197.81.109",
+			"port": 54321
+		}
+	],
+	"pages": [
+		{
+			"name": "page",
+			"label": "page",
+			"connection": "connection",
+			"fitToScreen": true,
+			"items": [
+				{
+					"top": 160,
+					"left": 30,
+					"width": 60,
+					"height": 290,
+					"type": "slider",
+					"minValue": 0,
+					"maxValue": 200,
+					"showValue": true,
+					"lowColor": "45,45,45",
+					"highColor": "65,65,65",
+					"knobColor": "70,152,8",
+					"textcolor": "81,239,24",
+					"release": "lt 100\n",
+					"sends": "lt {value}\n"
+				},
+				{
+					"top": 160,
+					"left": 220,
+					"width": 60,
+					"height": 290,
+					"type": "slider",
+					"minValue": 0,
+					"maxValue": 200,
+					"showValue": true,
+					"lowColor": "45,45,45",
+					"highColor": "65,65,65",
+					"knobColor": "171,26,10",
+					"textcolor": "242,8,8",
+					"release": "rt 100\n",
+					"sends": "rt {value}\n"
+				},
+				{
+					"top": 20,
+					"left": 40,
+					"width": 230,
+					"height": 40,
+					"type": "label",
+					"text": "Raspberry Pi Rover",
+					"textcolor": "230,230,230"
+				}
+			],
+			"width": 320,
+			"height": 480
+		}
+	],
+	"device": "iPhone",
+	"orientation": "portrait",
+	"name": "RasPi Rover",
+	"description": "control a Raspberry Pi Robot tank",
+	"navigation": "fix",
+	"pagebuttonwidth": "static",
+	"style": "flat",
+	"theme": "dark",
+	"preventSleep": false,
+	"switchOnSwipe": true
+}
