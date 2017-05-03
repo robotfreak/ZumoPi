@@ -1,21 +1,24 @@
-from pyfirmata import Arduino, util
+import piconzero as pz, time
 
-# connect to Arduino board
-board = Arduino('/dev/ttyACM0')
-board.digital[13].write(1)
+pan = 0
+tilt = 1
 
-def pan(a):
-    panServo.write(a)
+def servoPan(a):
+    pz.setOutput (pan, a)
 
-def tilt(a):
-    tiltServo.write(a)
+def servoTilt(a):
+    pz.setOutput (tilt, a)
 
-# set up pin D4, D12 as Servo Output
-panServo = board.get_pin('d:4:s')
-pan(90)
-tiltServo = board.get_pin('d:12:s')
-tilt(90)
- 
+pz.init()
 
-def arduino_map(x, in_min, in_max, out_min, out_max):
-    return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
+# Set output mode to Servo
+pz.setOutputConfig(pan, 2)
+pz.setOutputConfig(tilt, 2)
+
+# Centre all servos
+panVal = 90
+tiltVal = 90
+pz.setOutput (pan, panVal)
+pz.setOutput (tilt, tiltVal)
+
+
