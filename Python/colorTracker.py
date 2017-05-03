@@ -176,7 +176,8 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
                                 if (cam_pan <= 120):
                                         cam_pan += 2
                 servoPan(cam_pan)
-                rgb = h2rgb(lower[0])
+                rgb = h2rgb(lower[0] + ((upper[0] - lower[0]) / 2))
+                setNeoPixel(3, rgb)
                 print rgb
                 break
 
