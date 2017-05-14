@@ -3,8 +3,8 @@
 
 # import the necessary packages
 from pantilt import *
-from pyimagesearch.facedetector import FaceDetector
-from pyimagesearch import imutils
+from facedetector import *
+from imutils import *
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import argparse
