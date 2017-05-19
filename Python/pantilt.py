@@ -8,7 +8,7 @@ def servoPan(a):
     pz.setOutput (pan, a)
 
 def servoTilt(a):
-    pz.setOutput (tilt, a)
+    pz.setOutput (tilt, 180-a)
 
 def setNeoPixel(pixel, rgb):
     r, g, b = rgb
@@ -16,20 +16,25 @@ def setNeoPixel(pixel, rgb):
 
 def getDistance():
     return hcsr04.getDistance()  
-    
-pz.init()
 
-# Set output mode to Servo
-pz.setOutputConfig(pan, 2)
-pz.setOutputConfig(tilt, 2)
-# set output 5 to WS2812
-pz.setOutputConfig(pixel, 3)    
-hcsr04.init()
+def initPZ():    
+	pz.init()
 
-# Centre all servos
-panVal = 90
-tiltVal = 90
-pz.setOutput (pan, panVal)
-pz.setOutput (tilt, tiltVal)
+	# Set output mode to Servo
+	pz.setOutputConfig(pan, 2)
+	pz.setOutputConfig(tilt, 2)
+	# set output 5 to WS2812
+	pz.setOutputConfig(pixel, 3)    
+	hcsr04.init()
+
+	# Centre all servos
+	panVal = 90
+	tiltVal = 90
+	pz.setOutput (pan, panVal)
+	pz.setOutput (tilt, tiltVal)
+	
+def cleanupPZ():
+	pz.cleanup()
+	hcsr04.cleanup()
 
 

@@ -93,7 +93,7 @@ try:
         elif ord(keyp) == 3:
             break
         pz.setOutput (pan, panVal)
-        pz.setOutput (tilt, tiltVal)
+        pz.setOutput (tilt, 180-tiltVal)
         pz.setOutput (grip, gripVal)
 
 except KeyboardInterrupt:
